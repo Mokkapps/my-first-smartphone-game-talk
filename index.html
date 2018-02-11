@@ -1,0 +1,460 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Mein erstes Smartphone-Spiel</title>
+
+	<meta name="description" content="Vortrag: Mein erstes Smartphone Spiel">
+	<meta name="author" content="Michael Hoffmann">
+
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/night.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h2>Mein erstes Smartphone-Spiel</h2>
+				<h4>Ein Abendvortrag von Michael Hoffmann</h4>
+				<p>
+					<small>jambit GmbH, 21.02.2018</small>
+				</p>
+				<a href="https://twitter.com/Mokkapps?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false" aria-label="Follow @Mokkapps on Twitter">Follow @Mokkapps</a>
+				<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+				<a class="github-button" href="https://github.com/Mokkapps" aria-label="Follow @Mokkapps on GitHub">Follow @Mokkapps</a>
+				<a class="github-button" href="https://github.com/Mokkapps/my-first-smartphone-game-talk" aria-label="Follow @Mokkapps on GitHub">Folien auf GitHub</a>
+			</section>
+
+			<section>
+				<h2>Agenda</h2>
+				<ul>
+					<li>Warum habe ich ein Spiel entwickelt?</li>
+					<li>Vom Prototyp zum fertigen Spiel</li>
+					<li>Zahlen & Fakten</li>
+					<li>Lessons learned</li>
+					<li>Ausblick und Fazit</li>
+				</ul>
+			</section>
+
+			<section data-background="img/nerd.jpeg" data-background-size="cover" id="fragments">
+				<div style="background-color: rgba(0, 0, 0, 0.7); color: #fff; padding: 20px;">
+					<h2>Warum habe ich ein Spiel entwickelt?</h2>
+					<p class="fragment">Beruf: Softwareentwickler</p>
+					<p class="fragment">Hobby: Gamer</p>
+				</div>
+			</section>
+
+			<section>
+				<h2>Vom Prototyp zum fertigen Spiel</h2>
+			</section>
+
+			<section>
+				<h2>Die Spielidee</h2>
+				<div style="float: left; width:50%;">
+					<img data-src="img/papers-please.png">
+				</div>
+
+				<div style="float: right;  width:50%;">
+					<ul>
+						<li>2D-Spiel</li>
+						<li>„Paper‘s Please“ an der Supermarktkasse
+						</li>
+						<li>Spielcharakter: Arme Hausfrau</li>
+						<li>Nach jedem Tag an der Kasse, muss man sein Geld verteilen (Essen, Miete, Medizin, etc.)</li>
+					</ul>
+				</div>
+			</section>
+
+			<section>
+				<h2>Marktanalyse</h2>
+				<ul>
+					<li>Es gibt unzählige Supermarktkassen-Spiele, oft sehr kindlich</li>
+					<li>Meistens spielt das Kassieren eine Hauptrolle, also etwas den richtigen Geldbetrag zurückgeben</li>
+					<li>Zwei Apps gefunden, die die Spielmechanik beinhalten, die ich mir vorgestellt habe</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2>"Konkurrent 1": Crazy Market</h2>
+				<p>Kostenlos, 2D, In-App Käufe, Japano-Style, Level-basiert</p>
+				<iframe height="315px" width="560px" data-src="https://youtube.com/embed/f-ix_6lbkPM?autoplay=0&controls=1&showinfo=0&autohide=1">
+				</iframe>
+			</section>
+
+			<section>
+				<h2>"Konkurrent 2": Checkout Challenge</h2>
+				<p>Mittlerweile nicht mehr verfügbar, Kostenlos, 3D, Arcade-Modus</p>
+				<iframe height="315px" width="560px" data-src="https://youtube.com/embed/SozFe1ES-S0?autoplay=0&controls=1&showinfo=0&autohide=1"></iframe>
+			</section>
+
+			<section>
+				<h2>Inspiration: Fruit Ninja</h2>
+				<p>Viele Spielmodi, Arcade-Modus: 3 Leben, Highscore-Jagd</p>
+				<iframe height="315px" width="560px" data-src="https://youtube.com/embed/a8z8XG6uThU?autoplay=0&controls=1&showinfo=0&autohide=1"></iframe>
+			</section>
+
+			<section>
+				<h2>Ergebnisse der Marktanalyse</h2>
+				<ul>
+					<li>Spielname: "Supermarket Challenge"</li>
+					<li>Darstellung: 2D</li>
+					<li>Spielmechanik: "Fruit Ninja" meets "Crazy Market" meets "Checkout Challenge"</li>
+				</ul>
+			</section>
+
+			<section data-background="img/code-background.jpeg" data-background-size="cover">
+				<div style="background-color: rgba(0, 0, 0, 0.7); color: #fff; padding: 20px;">
+					<h2>Prototypen-Entwicklung</h2>
+					<ul>
+						<li>Start: Weihnachten 2016</li>
+						<li>Unity als Engine, da sehr bekannt und umfangreich</li>
+						<li>Entwicklungszeit (inkl. Einarbeitung): ~80h</li>
+					</ul>
+				</div>
+			</section>
+
+			<section data-background-video="videos/prototype-1.mov" data-background-video-muted data-background-size="contain">
+			</section>
+
+			<section data-background="img/winter.jpeg" data-background-size="cover">
+				<h2>Januar 2017</h2>
+				<h3>Entwicklungsstart</h3>
+			</section>
+
+			<section id="fragments">
+				<h2>Meine Erwartungen:</h2>
+				<ul>
+					<li class="fragment">Finanzieller Erfolg
+					</li>
+					<li class="fragment">Große, wiederkehrende Spielerbasis
+					</li>
+					<li class="fragment">Skalierbares Spielprinzip
+					</li>
+					<li class="fragment">Qualitativ hochwertiges Spiel
+					</li>
+
+					<li class="fragment">Release innerhalb eines Jahres in App Stores
+					</li>
+					<li class="fragment">Teamgröße: 1 Entwickler (ich) + evtl. 1 Designer
+					</li>
+				</ul>
+			</section>
+
+			<section data-background="img/unity-3d.png" data-background-size="contain">
+				<div style="background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px;">
+					<h2>Goodbye Unity</h2>
+					<ul>
+						<li>Nicht-wartbarer Spaghetti-Code des Prototypen</li>
+						<li>Keine Architektur und somit nicht skalierbar</li>
+						<li>Unity IDE zu komplex</li>
+						<li>Textbasierte Architektur schwer realisierbar mit Unity</li>
+					</ul>
+				</div>
+			</section>
+
+			<section data-background="img/winter.jpeg" data-background-size="cover">
+				<h2>Mitte Januar 2018</h2>
+				<h3>Neue Game-Engine Suche...</h3>
+			</section>
+
+			<section data-background="img/corona.png" data-background-size="contain">
+				<div style="background-color: rgba(0, 0, 0, 0.7); color: #fff; padding: 20px;">
+					<h2>Sieger: Corona SDK</h2>
+					<ul>
+						<li>2D-Engine</li>
+						<li>Cross-Plattform (iOS, Android, Desktop-Applikationen, Smart TVs)</li>
+						<li>Kostenlos (mit wenigen Einschraenkungen)</li>
+						<li>Textbasiert mit Lua als Skriptsprache</li>
+						<li>Corona Simulator mit Live-Testing</li>
+						<li>Gute Einstiegsbeispiele</li>
+						<li>Integrierte Monetarisierungsoptionen</li>
+					</ul>
+				</div>
+			</section>
+
+			<section data-background="img/trello.png" data-background-size="contain">
+				<div style="background-color: rgba(0, 0, 0, 0.7); color: #fff; padding: 20px;">
+					<h2>Entwicklungstools</h2>
+					<ul>
+						<li>Atom bzw. Visual Code als Texteditor</li>
+						<li>Trello als Projektmanagement-Tool</li>
+						<li>Gimp & Inkscape zur Bildbearbeitung</li>
+						<li>Code in privatem Bitbucket-Repository</li>
+					</ul>
+				</div>
+			</section>
+
+			<section>
+				<h2>Komponenten-basierte Architektur</h2>
+				<pre><code class="hljs" data-trim contenteditable>
+					scenes
+					  * game
+					  	- lib
+						  scanner.lua
+						  supermarket-basket.lua
+						  item.lua
+						  ...
+					  * menu
+					  	- images
+					  	- sounds
+					  	- menu.lua
+					  * game-over
+					  * ...
+				</code></pre>
+			</section>
+
+			<section data-background="img/winter.jpeg" data-background-size="cover">
+				<h2>Mitte Januar 2018</h2>
+				<h3>Grundlegende Spielmechanik implementiert</h3>
+			</section>
+
+			<section data-background-video="videos/prototype-2.mp4" data-background-video-muted>
+			</section>
+
+			<section data-background="img/winter.jpeg" data-background-size="cover">
+				<h2>Anfang Februar 2018</h2>
+				<h3>UX-Anpassungen, Tutorial, Menüs, etc.</h3>
+			</section>
+
+			<section data-background-video="videos/prototype-3.mp4" data-background-video-muted>
+			</section>
+
+			<section data-background="img/spring.jpeg" data-background-size="cover">
+				<div style="background-color: rgba(0, 0, 0, 0.7); color: #fff; padding: 20px;">
+					<h2>Anfang März</h2>
+					<h4>Erste Beta-Version</h4>
+					<h5>Beta-Feedback:</h5>
+					<ul>
+						<li>Kein gutes/stimmiges Design</li>
+						<li>Schwierigkeitsgrad zu einfach</li>
+					</ul>
+				</div>
+			</section>
+
+			<section data-background="img/spring.jpeg" data-background-size="cover">
+				<div style="background-color: rgba(0, 0, 0, 0.7); color: #fff; padding: 20px;">
+					<h2>Mitte März</h2>
+					<h4>Freund von mir designt einige Grafiken und berät mich in Design-Fragen</h4>
+				</div>
+			</section>
+
+			<section data-background-video="videos/prototype-4.mp4" data-background-video-muted>
+			</section>
+
+			<section>
+				<h2>Release 1</h2>
+				<h4>Features: Arcade-Modus</h4>
+				<h4>Release-Plattformen: iOS, Android</h4>
+				<h4>Datum: 06.05.201</h4>
+			</section>
+
+			<section data-background-video="videos/release-1.mp4">
+			</section>
+
+			<section>
+				<h2>Release 2</h2>
+				<h4>Features: Level-Modus, einfacherer Arcade-Modus</h4>
+				<h4>Release-Plattformen: iOS, Android</h4>
+				<h4>Datum: 21.12.2017</h4>
+			</section>
+
+			<section>
+				<h2>Level Modus Screenshots</h2>
+				<div style="float: left; width:50%;">
+					<img data-src="img/level-modus.png">
+				</div>
+
+				<div style="float: right;  width:50%;">
+					<img data-src="img/level-mode-development.png">
+				</div>
+			</section>
+
+			<section>
+				<section>
+					<h1>Zahlen und Fakten</h1>
+				</section>
+
+				<section>
+					<h2>Investierte Stunden</h2>
+					<h6>~500 Stunden / ~21 Tage</h6>
+					<a href="https://timingapp.com">
+						<small>Timing (Time Tracking Software für OS X)</small>
+					</a>
+					<canvas class="stretch" data-chart="pie">
+						,IDE, Browser, Gimp/Inkscape, Corona Simulator, Sonstiges Datensatz 
+						,50, 40, 20, 15, 5
+					</canvas>
+					<p>
+						<small>Time Tracking: Maniac (Windows), Time (OS X)</small>
+					</p>
+				</section>
+
+				<section>
+					<h2>Ausgaben</h2>
+					<img data-src="img/costs.png" alt="Ausgaben">
+					<h3 style="color: red">-244,37€</h3>
+				</section>
+
+				<section id="fragments">
+					<h2>Einnahmen</h2>
+					<h3>~1€, ~10€, ~100€, ~1000€?</h3>
+					<h3 class="fragment" style="color: green">Lösung: ~1€</h3>
+				</section>
+			</section>
+
+			<section>
+				<section>
+					<h1>Google Analytics</h1>
+				</section>
+				<section>
+					<h2>Nutzer</h2>
+					<img data-src="img/analytics-user.png" alt="Analytics Nutzer">
+				</section>
+				<section>
+					<h2>App-Versionen</h2>
+					<img data-src="img/analytics-app-version.png" alt="Analytics App Version">
+				</section>
+				<section>
+					<h2>Länder</h2>
+					<img data-src="img/analytics-country.png" alt="Analytics Länder">
+				</section>
+				<section>
+					<h2>Betriebssysteme</h2>
+					<img data-src="img/analytics-os.png" alt="Analytics Betriebssysteme">
+				</section>
+				<section>
+					<h2>Geräte</h2>
+					<img data-src="img/analytics-devices.png" alt="Analytics Geräte">
+				</section>
+				<section>
+					<h2>Score</h2>
+					<img data-src="img/analytics-score.png" alt="Analytics Score">
+				</section>
+				<section>
+					<h2>Sitzungsdauer</h2>
+					<img data-src="img/analytics-session-duration.png" alt="Analytics Sitzungsdauer">
+				</section>
+			</section>
+
+			<section>
+				<section>
+					<h1>Lessons learned</h1>
+				</section>
+
+				<section id="fragment">
+					<h2>1. Keep it simple: Setz dir kleine (realistische) Ziele</h2>
+					<p class="fragment">In meinem Fall: Erstmal Arcade-Modus ohne Story-Elemente</p>
+				</section>
+
+				<section>
+					<h2>2. Hilf dir selber, lern alles</h2>
+					<p>Grafik, UX, Game-Design, Code, etc.</p>
+				</section>
+
+				<section id="fragments">
+					<h2>3. Nutze kostenlose Assets</h2>
+					<p>Spart am Anfang viel Zeit und Geld</p>
+				</section>
+
+				<section>
+					<h2>4. So früh wie möglich Prototyp(en) entwickeln</h2>
+				</section>
+
+				<section id="fragment">
+					<h2>5. Sei aktiv in sozialen Netzwerken</h2>
+					<p>Hilft beim Aufbauen einer aktiven Spieler-Community</p>
+					<p id="fragment">Trailer & Teaser sind ein gutes Lockmittel</p>
+				</section>
+
+				<section>
+					<h2>5. Fühl dich wohl mit deiner Game-Engine</h2>
+					<p>Lass dich nicht von großen Namen wie Unreal Engine und Unity locken ;-)</p>
+				</section>
+			</section>
+
+			<section>
+				<section>
+					<h1>Fazit und Ausblick</h1>
+				</section>
+
+				<section id="fragments">
+					<h2>Fazit</h2>
+					<ul class="fragment">
+						<li>Hat Spaß gemacht</li>
+						<li>Finanziell nicht erfolgreich</li>
+						<li>Keine wiederkehrende Spielerbasis</li>
+					</ul>
+				</section>
+
+				<section id="fragments">
+					<h2>Ausblick</h2>
+					<h6 class="fragment">Entwicklungsstop, auf zu neuen Projekten 😋</h6>
+				</section>
+			</section>
+
+			<section data-background="img/release-1.jpg" data-background-size="contain" id="fragments">
+				<div style="background-color: rgba(0, 0, 0, 0.7); color: #fff; padding: 20px;">
+					<h1>Danke</h1>
+					<h3>Links:</h3>
+					<ul>
+						<li>Supermarket Challenge (iOS)</li>
+						<li>Supermarket Challenge (Android)</li>
+						<li>Folien auf GitHub</li>
+						<li>Meine Website</li>
+					</ul>
+				</div>
+			</section>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+		<!-- Place this tag in your head or just before your close body tag. -->
+		<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				chart: {
+					defaults: {
+						global: {
+							legend: {
+								labels: { fontColor: "#FFF" },
+							}
+						}
+					},
+					pie: { backgroundColor: [["rgba(0,0,0,.8)", "rgba(220,20,20,.8)", "rgba(20,220,20,.8)", "rgba(220,220,20,.8)", "rgba(20,20,220,.8)"]] },
+				},
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/chart/Chart.min.js' },
+					{ src: 'plugin/chart/csv2chart.js' }
+				]
+			});
+		</script>
+</body>
+
+</html>
